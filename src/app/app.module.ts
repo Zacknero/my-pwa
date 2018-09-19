@@ -19,12 +19,14 @@ import {environment} from '../environments/environment';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {AppTableComponent} from './app-table/app-table.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppNavComponent,
-    AppTableComponent
+    AppTableComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -9,3 +9,6 @@ This project is first time and ins't complete
 - https://medium.com/@joseant.ruizsantiago/building-a-pwa-with-angular-6-5735d7308d25
 
 - https://blog.angular-university.io/angular-service-worker/
+
+_Build local_
+`ng build --prod && lite-server --baseDir dist/my-pwa`
