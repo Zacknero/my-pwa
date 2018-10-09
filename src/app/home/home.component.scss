@@ -1,0 +1,31 @@
+.grid-component{
+  background-color: lightgray;
+}
+
+.card {
+  width: 85%;
+}
+
+.img-article{
+   height: 175px;
+ }
+
+.action-buttons {
+
+  button {
+    padding: 0;
+  }
+
+  a {
+    padding: 0;
+  }
+
+}
+
+@media screen and (max-device-width: 416px) {
+.text{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+}
