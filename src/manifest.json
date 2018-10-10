@@ -1,8 +1,11 @@
 {
-  "name": "my-pwa",
-  "short_name": "my-pwa",
+  "lang": "en",
+  "name": "PWA News",
+  "short_name": "PWA_NWS",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
+  "description": "Sample PWA App News",
+  "orientation": "any",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",

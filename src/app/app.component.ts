@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SwUpdate} from '@angular/service-worker';
 
 @Component({
@@ -6,12 +6,23 @@ import {SwUpdate} from '@angular/service-worker';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  update = false;
+export class AppComponent implements OnInit {
 
-  constructor(updates: SwUpdate) {
-    updates.available.subscribe(event => {
-      console.log(event)
-    });
+  constructor(private swUpdate: SwUpdate) {
   }
+
+  ngOnInit() {
+
+    if (this.swUpdate.isEnabled) {
+
+      this.swUpdate.available.subscribe(() => {
+
+        if (confirm('New version available. Load New Version?')) {
+
+          window.location.reload();
+        }
+      });
+    }
+  }
+
 }

@@ -19,14 +19,14 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit() {
-    const mapProp = {
+    /*const mapProp = {
       center: {lat: -34.397, lng: 150.644},
       zoom: 15,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapProp);
 
-    this.findMe();
+    this.findMe();*/
   }
 
   findMe() {
