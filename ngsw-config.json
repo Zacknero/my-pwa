@@ -8,11 +8,20 @@
         "files": [
           "/favicon.ico",
           "/index.html",
+          "/app/**/*.html",
+          "/app/**/*.scss",
+          "/app/**/*.ts",
+          "/app/**/*.js",
           "/*.css",
           "/*.js"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/**",
+          "https://fonts.gstatic.com/**"
         ]
       }
-    }, {
+    },
+    {
       "name": "assets",
       "installMode": "lazy",
       "updateMode": "prefetch",
@@ -20,6 +29,41 @@
         "files": [
           "/assets/**"
         ]
+      }
+    },
+    {
+      "name": "externals",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "urls": [
+          "https://techcrunch.com/wp-content/uploads/**"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-sources",
+      "urls": [
+        "/v2/sources"
+      ],
+      "cacheConfig": {
+        "maxSize": 100,
+        "maxAge": "1d",
+        "strategy": "performance"
+      }
+    },
+    {
+      "name": "api-top-articles",
+      "urls": [
+        "/v2/top-headlines"
+      ],
+      "cacheConfig": {
+        "maxSize": 100,
+        "maxAge": "1h",
+        "timeout": "60s",
+        "strategy": "freshness"
       }
     }
   ]

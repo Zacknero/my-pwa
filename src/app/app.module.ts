@@ -11,7 +11,9 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
-  MatGridListModule, MatCardModule
+  MatGridListModule,
+  MatCardModule,
+  MatSnackBarModule
 } from '@angular/material';
 import {environment} from '../environments/environment';
 
@@ -19,8 +21,8 @@ import {AppNavComponent} from './app-nav/app-nav.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
+import {AboutComponent} from './about/about.component';
+import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
@@ -46,6 +48,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatSortModule,
     MatGridListModule,
     MatCardModule,
+    MatSnackBarModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [],

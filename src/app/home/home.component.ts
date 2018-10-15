@@ -10,18 +10,23 @@ export class HomeComponent implements OnInit {
 
   breakpoint: number;
   rowHeight = '2:2.5';
-  mArticles: Array<any>;
+  articles$: Array<any> = [];
 
   constructor(private newsApi: NewsApiService) {
     this.newsApi.newsServiceCheck$.subscribe(
-      data => this.mArticles = data['articles']
+      (data: any) => {
+        this.articles$ = data;
+      }
     );
   }
 
   ngOnInit() {
     this.adjustRowsHeight();
     this.adjustBreakPoint();
-    this.newsApi.initArticles().subscribe(data => this.mArticles = data['articles']);
+    this.newsApi.initArticles
+      .subscribe(data => {
+        this.articles$ = data;
+      });
   }
 
   onResize() {

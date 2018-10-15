@@ -1,5 +1,5 @@
 <mat-grid-list cols="{{breakpoint}}" rowHeight="{{rowHeight}}" (window:resize)="onResize()" class="grid-component">
-  <mat-grid-tile *ngFor="let article of mArticles" class="grid-container">
+  <mat-grid-tile *ngFor="let article of articles$" class="grid-container">
     <mat-card class="card">
       <mat-card-header>
         <!--<div mat-card-avatar [ngStyle]="{'background-image': 'url(../assets/images/'+ article.source.id +'.png)'}" class="example-header-image"></div>-->

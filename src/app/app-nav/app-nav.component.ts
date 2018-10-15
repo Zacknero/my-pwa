@@ -1,14 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 import {NewsApiService} from '../news-api.service';
+import {MatSidenav} from '@angular/material';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './app-nav.component.html',
-  styleUrls: ['./app-nav.component.css']
+  styleUrls: ['./app-nav.component.scss']
 })
 export class AppNavComponent implements OnInit {
 
@@ -17,15 +18,21 @@ export class AppNavComponent implements OnInit {
       map(result => result.matches)
     );
 
+  sources$: Observable<Array<any>>;
+  @ViewChild('drawer') drawer: MatSidenav;
   disableAutoClose = false;
-  mSources: Array<any>;
 
   constructor(private breakpointObserver: BreakpointObserver, private newsApi: NewsApiService) {
     this.isHandset$.subscribe(val => this.disableAutoClose = val);
   }
 
   ngOnInit() {
-    this.newsApi.initSources().subscribe(data => this.mSources = data['sources']);
+    this.sources$ = this.newsApi.initSources;
+  }
+
+  getTopics() {
+    this.disableAutoClose ? null : this.drawer.toggle();
+    this.sources$ = this.newsApi.initSources;
   }
 
   searchArticles(id) {

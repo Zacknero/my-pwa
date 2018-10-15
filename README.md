@@ -11,9 +11,10 @@ I have build a small pwa on news with this reference: https://www.smashingmagazi
 
 - https://blog.angular-university.io/angular-service-worker/
 
+- News API: https://newsapi.org
+
 **What to implement**
-- When click on menu this to must can refresh page
-- Cache the first news and menu because the pwa don't work offline
+- Cache the images of articles and on offline don't work because call external api
 
 _Build local_
 `ng build --prod && lite-server --baseDir dist/my-pwa`
