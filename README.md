@@ -16,5 +16,5 @@ I have build a small pwa on news with this reference: https://www.smashingmagazi
 **What to implement**
 - Cache the images of articles and on offline don't work because call external api
 
-_Build local_
+_Build local for testing/prove_
 `ng build --prod && lite-server --baseDir dist/my-pwa`
