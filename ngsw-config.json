@@ -49,7 +49,7 @@
         "/v2/sources"
       ],
       "cacheConfig": {
-        "maxSize": 100,
+        "maxSize": 10,
         "maxAge": "1d",
         "strategy": "performance"
       }
@@ -60,7 +60,7 @@
         "/v2/top-headlines"
       ],
       "cacheConfig": {
-        "maxSize": 100,
+        "maxSize": 5,
         "maxAge": "1h",
         "timeout": "60s",
         "strategy": "freshness"
