@@ -1,7 +1,7 @@
 # PWA News
 
 **IMPORTANT:**
-This project is first time and ins't complete.
+This project is first time and ins't complete. Current is 80% to complete
 I have build a small pwa on news with this reference: https://www.smashingmagazine.com/2018/10/news-application-with-angular-and-material-design/
 
 **Guide Line**:
@@ -14,7 +14,9 @@ I have build a small pwa on news with this reference: https://www.smashingmagazi
 - News API: https://newsapi.org
 
 **What to implement**
-- Cache the images of articles and on offline don't work because call external api
+- Complete About Page
+- Block routing when is offline
+- Publish on domain free for testing
 
-_Build local for testing/prove_
+_Build local for testing/simulate_
 `ng build --prod && lite-server --baseDir dist/my-pwa`

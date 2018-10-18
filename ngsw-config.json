@@ -49,7 +49,7 @@
         "/v2/sources"
       ],
       "cacheConfig": {
-        "maxSize": 10,
+        "maxSize": 1,
         "maxAge": "1d",
         "strategy": "performance"
       }

@@ -32,7 +32,6 @@ export class AppNavComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.sources$ = this.newsApi.initSources;
     this.newsApi.getSourcesByLangCountry();
   }
 

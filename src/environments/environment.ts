@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   api_key: 'cf0f762318e846f5820d5331832bb87d',
+  baseUrl: 'https://newsapi.org/v2',
   countries: [
     {
       lang: 'it',

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {NewsApiService} from '../news-api.service';
 
 @Component({
@@ -6,7 +6,7 @@ import {NewsApiService} from '../news-api.service';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss']
 })
-export class SettingsComponent implements OnInit {
+export class SettingsComponent {
 
   listCounty = [];
 
@@ -14,11 +14,7 @@ export class SettingsComponent implements OnInit {
     this.listCounty = newsApiService.getCountries();
   }
 
-  ngOnInit() {
-  }
-
   changeCountry(countryObj) {
-    console.log(countryObj);
     this.newsApiService.setLangCountry(countryObj);
   }
 
