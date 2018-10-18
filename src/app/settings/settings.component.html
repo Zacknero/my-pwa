@@ -1,0 +1,9 @@
+<mat-list>
+  <mat-radio-group>
+    <mat-radio-button class="radio" labelPosition="before" *ngFor="let item of listCounty; let i = index" value="{{i}}"
+                      (click)="changeCountry(item)">
+      <img class="avatar" matListAvatar src="../../assets/countryIcons/{{item.src}}.svg" alt="">
+      <h3 matLine> {{item.name}} </h3>
+    </mat-radio-button>
+  </mat-radio-group>
+</mat-list>

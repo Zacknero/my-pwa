@@ -3,6 +3,7 @@
 }
 
 .card {
+  border-radius: 5%;
   width: 85%;
 }
 
@@ -11,6 +12,8 @@
  }
 
 .action-buttons {
+
+  text-align: center;
 
   button {
     padding: 0;

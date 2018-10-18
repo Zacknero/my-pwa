@@ -13,7 +13,8 @@ import {
   MatSortModule,
   MatGridListModule,
   MatCardModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatRadioModule
 } from '@angular/material';
 import {environment} from '../environments/environment';
 
@@ -24,13 +25,15 @@ import {AppRoutingModule} from './app-routing.module';
 import {AboutComponent} from './about/about.component';
 import {HomeComponent} from './home/home.component';
 import {HttpClientModule} from '@angular/common/http';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppNavComponent,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,6 +52,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatGridListModule,
     MatCardModule,
     MatSnackBarModule,
+    MatRadioModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [],

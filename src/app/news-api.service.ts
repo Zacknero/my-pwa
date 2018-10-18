@@ -1,55 +1,37 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, Subject} from 'rxjs';
-import {map, shareReplay} from 'rxjs/operators';
+import {Subject} from 'rxjs';
+import {map} from 'rxjs/operators';
 
-const CACHE_SIZE = 1;
+import {environment} from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsApiService {
 
-  api_key = 'cf0f762318e846f5820d5331832bb87d';
-  _newsServiceCheck = new Subject();
+  // api_key = 'cf0f762318e846f5820d5331832bb87d';
+  private api_key = environment.api_key;
+  private _newsServiceCheck = new Subject();
   newsServiceCheck$ = this._newsServiceCheck.asObservable();
 
-  private cacheResource$: Observable<Array<any>>;
-  private cacheArticles$: Observable<Array<any>>;
+  private _sourcesServiceCheck = new Subject();
+  sourcesServiceCheck$ = this._sourcesServiceCheck.asObservable();
+  private country = 'ar';
+  private lang = 'es';
 
   constructor(private http: HttpClient) {
   }
 
-  get initSources() {
-    if (!this.cacheResource$) {
-      this.cacheResource$ = this.requestSources().pipe(
-        shareReplay(CACHE_SIZE)
-      );
-    }
-    return this.cacheResource$;
-  }
-
-  private requestSources() {
-    return this.http.get('https://newsapi.org/v2/sources?language=it&country=it&apiKey=' + this.api_key)
-      .pipe(
-        map((response: any) => {
-          return response.sources;
-        })
+  getSourcesByLangCountry() {
+    this.http.get(`https://newsapi.org/v2/sources?language=${this.lang}&country=${this.country}&apiKey=${this.api_key}`)
+      .subscribe(
+        data => this._sourcesServiceCheck.next(data['sources'])
       );
   }
 
   get initArticles() {
-    if (!this.cacheArticles$) {
-      this.cacheArticles$ = this.requestArticles().pipe(
-        shareReplay(CACHE_SIZE)
-      );
-    }
-
-    return this.cacheArticles$;
-  }
-
-  private requestArticles() {
-    return this.http.get('https://newsapi.org/v2/top-headlines?country=it&apiKey=' + this.api_key)
+    return this.http.get(`https://newsapi.org/v2/top-headlines?country=${this.country}&apiKey=${this.api_key}`)
       .pipe(
         map((response: any) => {
           return response.articles;
@@ -57,10 +39,27 @@ export class NewsApiService {
       );
   }
 
-  getArticlesByID(source: String) {
-    this.http.get('https://newsapi.org/v2/top-headlines?language=it&sources=' + source + '&apiKey=' + this.api_key)
+  getTopArticles() {
+    this.http.get(`https://newsapi.org/v2/top-headlines?country=${this.country}&apiKey=${this.api_key}`)
       .subscribe(
         data => this._newsServiceCheck.next(data['articles'])
       );
+  }
+
+  getArticlesByID(source: String) {
+    this.http.get(`https://newsapi.org/v2/top-headlines?language=${this.lang}&sources=${source}&apiKey=${this.api_key}`)
+      .subscribe(
+        data => this._newsServiceCheck.next(data['articles'])
+      );
+  }
+
+  getCountries() {
+    return environment.countries;
+  }
+
+  setLangCountry(langCountry: Object) {
+    this.lang = langCountry['lang'];
+    this.country = langCountry['country'];
+    this.getSourcesByLangCountry();
   }
 }

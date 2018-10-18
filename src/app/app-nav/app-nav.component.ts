@@ -24,19 +24,32 @@ export class AppNavComponent implements OnInit {
 
   constructor(private breakpointObserver: BreakpointObserver, private newsApi: NewsApiService) {
     this.isHandset$.subscribe(val => this.disableAutoClose = val);
+    this.newsApi.sourcesServiceCheck$.subscribe(
+      (data: any) => {
+        this.sources$ = data;
+      }
+    );
   }
 
   ngOnInit() {
-    this.sources$ = this.newsApi.initSources;
+    // this.sources$ = this.newsApi.initSources;
+    this.newsApi.getSourcesByLangCountry();
   }
 
   getTopics() {
-    this.disableAutoClose ? null : this.drawer.toggle();
-    this.sources$ = this.newsApi.initSources;
+    this.newsApi.getTopArticles();
+    this.closeMenu();
   }
 
   searchArticles(id) {
     this.newsApi.getArticlesByID(id);
+    this.closeMenu();
+  }
+
+  closeMenu() {
+    if (this.drawer.mode === 'over') {
+      this.drawer.toggle();
+    }
   }
 
 }
