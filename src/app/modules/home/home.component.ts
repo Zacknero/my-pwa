@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {NewsApiService} from '../news-api.service';
+import {NewsApiService} from '../../core/news-api.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
   rowHeight = '2:2.5';
   articles$: Array<any> = [];
 
-  constructor(private newsApi: NewsApiService) {
+  constructor(private newsApi: NewsApiService, private route: ActivatedRoute) {
     this.newsApi.newsServiceCheck$.subscribe(
       (data: any) => {
         this.articles$ = data;
@@ -23,10 +24,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.adjustRowsHeight();
     this.adjustBreakPoint();
-    this.newsApi.initArticles
-      .subscribe(data => {
-        this.articles$ = data;
-      });
+    this.articles$ = this.route.snapshot.data.articles;
   }
 
   onResize() {

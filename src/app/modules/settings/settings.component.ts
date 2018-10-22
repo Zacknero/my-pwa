@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {NewsApiService} from '../news-api.service';
+import {NewsApiService} from '../../core/news-api.service';
+import {NetworkService} from '../../core/network.service';
 
 @Component({
   selector: 'app-settings',
@@ -10,7 +11,7 @@ export class SettingsComponent {
 
   listCounty = [];
 
-  constructor(private newsApiService: NewsApiService) {
+  constructor(private newsApiService: NewsApiService, public network: NetworkService) {
     this.listCounty = newsApiService.getCountries();
   }
 

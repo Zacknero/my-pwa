@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {SwUpdate} from '@angular/service-worker';
-import {MatSnackBar} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 import {Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
+
+import {LoaderComponent} from './shared/loader/loader.component';
 
 @Component({
   selector: 'app-root',
@@ -10,17 +12,17 @@ import {Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart
 })
 export class AppComponent implements OnInit {
 
-  constructor(private swUpdate: SwUpdate, private snackBar: MatSnackBar, private router: Router) {
+  private dialogRef;
+
+  constructor(private swUpdate: SwUpdate, private snackBar: MatSnackBar, private router: Router, public dialog: MatDialog) {
     this.router.events.subscribe((routerEvent: Event) => {
 
       if (routerEvent instanceof NavigationStart) {
-        //this.showLoadingIndicator = true;
-        console.log('Rout start');
+        this.openDialog();
       }
 
       if (routerEvent instanceof NavigationEnd || routerEvent instanceof NavigationError || routerEvent instanceof NavigationCancel) {
-        ///this.showLoadingIndicator = false;
-        console.log('Rout end');
+        this.closeDialog();
       }
 
     });
@@ -37,6 +39,17 @@ export class AppComponent implements OnInit {
         });
       });
     }
+  }
+
+  openDialog() {
+    this.dialogRef = this.dialog.open(LoaderComponent, {
+      width: '40%',
+      height: '24%'
+    });
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
   }
 
 }

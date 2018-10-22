@@ -1,14 +1,17 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-import {AboutComponent} from './about/about.component';
-import {HomeComponent} from './home/home.component';
-import {SettingsComponent} from './settings/settings.component';
+import {AboutComponent} from '../modules/about/about.component';
+import {HomeComponent} from '../modules/home/home.component';
+import {SettingsComponent} from '../modules/settings/settings.component';
+import {ResolverRouter} from './resolver-router';
+import {OnlineGuard} from './online.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    resolve: {articles: ResolverRouter}
   },
   {
     path: 'about',
@@ -32,7 +35,8 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [ResolverRouter]
 })
 export class AppRoutingModule {
 }
