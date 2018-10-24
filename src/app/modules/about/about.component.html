@@ -1,2 +1,20 @@
+<mat-card class="about">
+  <mat-card-header>
+    <img mat-card-avatar src="../../../assets/icons/favicon-194x194.png">
+    <mat-card-title>
+      <h1>PWA News</h1>
+    </mat-card-title>
+  </mat-card-header>
 
-<h1>About me!</h1>
+  <mat-card-content>
+    {{textContent}}
+  </mat-card-content>
+
+  <mat-card-actions class="card-action">
+    Url project
+    <button mat-button class="mat-primary" (click)="onNavigate()">
+      <mat-icon>star</mat-icon>
+      GitHub
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,8 +1,14 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: 'Roboto', sans-serif; }
+html, body {
+  height: 100%;
+}
 
-.mat-radio-label{
-  .mat-radio-label-content{
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.mat-radio-label {
+  .mat-radio-label-content {
     padding-right: 0 !important;
   }
 }

@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-import {environment} from '../../environments/environment';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,7 @@ export class NewsApiService {
     return this.http.get(`${this.baseUrl}/top-headlines?country=${this.country}&apiKey=${this.api_key}`)
       .pipe(
         map((response: any) => {
-          return response.articles;
+          return this.filterImages(response.articles);
         })
       );
   }
@@ -42,14 +42,20 @@ export class NewsApiService {
   getTopArticles() {
     this.http.get(`${this.baseUrl}/top-headlines?country=${this.country}&apiKey=${this.api_key}`)
       .subscribe(
-        data => this._newsServiceCheck.next(data['articles'])
+        data => {
+          const tmp = this.filterImages(data['articles']);
+          this._newsServiceCheck.next(tmp);
+        }
       );
   }
 
   getArticlesByID(source: String) {
     this.http.get(`${this.baseUrl}/top-headlines?language=${this.lang}&sources=${source}&apiKey=${this.api_key}`)
       .subscribe(
-        data => this._newsServiceCheck.next(data['articles'])
+        data => {
+          const tmp = this.filterImages(data['articles']);
+          this._newsServiceCheck.next(tmp);
+        }
       );
   }
 
@@ -61,5 +67,22 @@ export class NewsApiService {
     this.lang = langCountry['lang'];
     this.country = langCountry['country'];
     this.getSourcesByLangCountry();
+  }
+
+  getCountryId() {
+    return this.country;
+  }
+
+  private filterImages(list: any) {
+    list.filter(function (item, index) {
+      if (item.urlImage) {
+        item.urlImage.substring(0, 5) !== 'https' ? item.urlImage = null : null;
+      }
+      if (item.url) {
+        item.url.substring(0, 5) !== 'https' ? list.splice(index, 1) : null;
+      }
+
+    });
+    return list;
   }
 }

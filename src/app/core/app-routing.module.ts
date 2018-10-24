@@ -1,11 +1,10 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 
 import {AboutComponent} from '../modules/about/about.component';
 import {HomeComponent} from '../modules/home/home.component';
 import {SettingsComponent} from '../modules/settings/settings.component';
 import {ResolverRouter} from './resolver-router';
-import {OnlineGuard} from './online.guard';
 
 const routes: Routes = [
   {

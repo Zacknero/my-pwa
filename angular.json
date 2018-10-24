@@ -43,12 +43,14 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.json"
+              "src/manifest.json",
+              "src/browserconfig.xml"
             ],
             "styles": [
               {
                 "input": "node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css"
               },
+              "src/assets/custom-theme.scss",
               "src/styles.scss"
             ],
             "scripts": []

@@ -1,21 +1,30 @@
-.grid-component{
+.grid-component {
+  position: static !important;
   background-color: lightgray;
 }
 
 .card {
   border-radius: 5%;
   width: 85%;
+
+  .title {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+  }
+
 }
 
-.img-article{
-   height: 175px;
- }
+.img-article {
+  height: 175px;
+}
 
 .action-buttons {
 
   text-align: center;
 
   button {
+    color: #009688;
     padding: 0;
   }
 
@@ -26,9 +35,9 @@
 }
 
 @media screen and (max-device-width: 416px) {
-.text{
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+  .text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

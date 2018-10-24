@@ -1,17 +1,18 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
-import {Observable} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {MatSidenav, MatSnackBar} from '@angular/material';
 
-import {NewsApiService} from '../news-api.service';
-import {MatSidenav} from '@angular/material';
+import {NewsApiService} from '../services/news-api.service';
+import {NetworkService} from '../services/network.service';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './app-nav.component.html',
   styleUrls: ['./app-nav.component.scss']
 })
-export class AppNavComponent implements OnInit {
+export class AppNavComponent implements OnInit, OnDestroy {
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -21,10 +22,12 @@ export class AppNavComponent implements OnInit {
   sources$: Observable<Array<any>>;
   @ViewChild('drawer') drawer: MatSidenav;
   disableAutoClose = false;
+  subscription: Subscription;
 
-  constructor(private breakpointObserver: BreakpointObserver, private newsApi: NewsApiService) {
-    this.isHandset$.subscribe(val => this.disableAutoClose = val);
-    this.newsApi.sourcesServiceCheck$.subscribe(
+  constructor(private breakpointObserver: BreakpointObserver, private newsApi: NewsApiService, public network: NetworkService,
+              private snackBar: MatSnackBar) {
+    this.subscription = this.isHandset$.subscribe(val => this.disableAutoClose = val);
+    this.subscription = this.newsApi.sourcesServiceCheck$.subscribe(
       (data: any) => {
         this.sources$ = data;
       }
@@ -41,7 +44,13 @@ export class AppNavComponent implements OnInit {
   }
 
   searchArticles(id) {
-    this.newsApi.getArticlesByID(id);
+    if (this.network.isOnline()) {
+      this.newsApi.getArticlesByID(id);
+    } else {
+      this.snackBar.open(`The network is offline!`, null, {
+        duration: 2000,
+      });
+    }
     this.closeMenu();
   }
 
@@ -49,6 +58,10 @@ export class AppNavComponent implements OnInit {
     if (this.drawer.mode === 'over') {
       this.drawer.toggle();
     }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

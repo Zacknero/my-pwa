@@ -1,21 +1,20 @@
 <mat-grid-list cols="{{breakpoint}}" rowHeight="{{rowHeight}}" (window:resize)="onResize()" class="grid-component">
   <mat-grid-tile *ngFor="let article of articles$" class="grid-container">
     <mat-card class="card">
-      <mat-card-header>
-        <mat-card-title class="title">{{article.title}}</mat-card-title>
+      <mat-card-header class="header">
+        <mat-card-title class="title" style="-webkit-box-orient: block-axis;">{{article.title}}</mat-card-title>
         <mat-card-subtitle>{{article.source.name}}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image class="img-article" src={{article.urlToImage}} alt="" *ngIf="article.urlToImage">
-      <img mat-card-image class="img-article" src="../../../assets/images/Blank_Newspaper.jpg" alt="" *ngIf="!article.urlToImage">
+      <img mat-card-image class="img-article" src="../../../assets/images/Blank_Newspaper.png" alt="" *ngIf="!article.urlToImage">
       <mat-card-content>
         <div class="text">{{article.description}}</div>
       </mat-card-content>
       <mat-card-actions class="action-buttons">
-        <button mat-button color="primary"><mat-icon>comment</mat-icon> Comments</button>
-        <button mat-button color="primary"><mat-icon>share</mat-icon> Share</button>
-        <a mat-button color="primary" href={{article.url}} target="_blank" ><mat-icon>visibility</mat-icon> More</a>
+        <button disabled mat-button color="primary"><mat-icon>comment</mat-icon> Comments</button>
+        <button disabled mat-button color="primary"><mat-icon>share</mat-icon> Share</button>
+        <button mat-button color="primary" (click)="onNavigate(article.url)" ><mat-icon>visibility</mat-icon> Read</button>
       </mat-card-actions>
-      <mat-card-footer></mat-card-footer>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>

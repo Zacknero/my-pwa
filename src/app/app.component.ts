@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SwUpdate} from '@angular/service-worker';
 import {MatDialog, MatSnackBar} from '@angular/material';
 import {Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 import {LoaderComponent} from './shared/loader/loader.component';
 
@@ -10,12 +11,13 @@ import {LoaderComponent} from './shared/loader/loader.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
   private dialogRef;
+  private subscription: Subscription;
 
   constructor(private swUpdate: SwUpdate, private snackBar: MatSnackBar, private router: Router, public dialog: MatDialog) {
-    this.router.events.subscribe((routerEvent: Event) => {
+    this.subscription = this.router.events.subscribe((routerEvent: Event) => {
 
       if (routerEvent instanceof NavigationStart) {
         this.openDialog();
@@ -50,6 +52,10 @@ export class AppComponent implements OnInit {
 
   closeDialog() {
     this.dialogRef.close();
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

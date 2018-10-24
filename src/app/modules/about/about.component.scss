@@ -1,0 +1,15 @@
+.about {
+  max-width: 85%;
+  margin: 5% auto auto;
+
+  mat-card-title {
+    margin-top: -12% !important;
+  }
+
+  .card-action {
+    margin-left: auto;
+    button {
+      padding-left: 0;
+    }
+  }
+}
