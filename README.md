@@ -19,6 +19,11 @@ _**API reference of News**:_
 - Last version of Chrome Browser
 - run `npm install` or `yarn install`
 
+_Optional_: lighthouse installed for test PWA quality: https://developers.google.com/web/tools/lighthouse/
+Alternative: 
+1) use Google Chrome browser console, click tab 'Audits' and Run audits button
+2) Install the Lighthouse extension for browser (only Chrome - 24 October 2018)
+
 For work with Service Worker, you must run in build because this isn't work without them.
 
 _Build local with Service Worker_ =>`ng build --prod && lite-server --baseDir dist/my-pwa`
