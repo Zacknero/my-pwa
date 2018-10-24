@@ -1,22 +1,29 @@
 # PWA News
 
-**IMPORTANT:**
-This project is first time and ins't complete. Current is 80% to complete
-I have build a small pwa on news with this reference: https://www.smashingmagazine.com/2018/10/news-application-with-angular-and-material-design/
+The web application "PWA News" is used to consult the top news for each country where each article refers to a
+  specific newspaper.The application can be consulted from any device using the responsive technology, which is visible from mobile devices
+  to desktop monitors.
+The advantage of this application is developed with the "PWA" technology, synonymous with progressive web application, which can be 
+installed on your device with a simple click without having to go to the store!!
 
-**Guide Line**:
-- https://www.youtube.com/watch?v=0UKJbtdPx4I
+The project was mainly developed with the Angular v6, Angular Material and RxJs freamework.
 
-- https://medium.com/@joseant.ruizsantiago/building-a-pwa-with-angular-6-5735d7308d25
+_**Test online**_ : <a href="pwa-news-67c22.firebaseapp.com">Link</a>
 
-- https://blog.angular-university.io/angular-service-worker/
-
+_**API reference of News**:_
 - News API: https://newsapi.org
 
-**What to implement**
-- Complete About Page
-- Block routing when is offline
-- Publish on domain free for testing
+**Requirements for install the project**
+- NodeJs & NPM installed or Yarn
+- Firebase installed
+- Last version of Chrome Browser
+- run `npm install` or `yarn install`
 
-_Build local for testing/simulate_
+For work with Service Worker, you must run in build because this isn't work without them.
+
+_Build local with Service Worker_
+
 `ng build --prod && lite-server --baseDir dist/my-pwa`
+
+_Build Local without Service Worker_
+`ng serve`
