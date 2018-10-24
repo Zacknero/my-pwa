@@ -14,16 +14,13 @@ _**API reference of News**:_
 - News API: https://newsapi.org
 
 **Requirements for install the project**
-- NodeJs & NPM installed or Yarn
+- NodeJs & NPM or Yarn installed
 - Firebase installed
 - Last version of Chrome Browser
 - run `npm install` or `yarn install`
 
 For work with Service Worker, you must run in build because this isn't work without them.
 
-_Build local with Service Worker_
+_Build local with Service Worker_ =>`ng build --prod && lite-server --baseDir dist/my-pwa`
 
-`ng build --prod && lite-server --baseDir dist/my-pwa`
-
-_Build Local without Service Worker_
-`ng serve`
+_Build Local without Service Worker_ => `ng serve`
