@@ -15,7 +15,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   rowHeight = '2:2.5';
   articles$: Array<any> = [];
   subscription: Subscription;
-  private widthScreen = window.innerWidth;
 
   constructor(private newsApi: NewsApiService, private route: ActivatedRoute) {
     this.subscription = this.newsApi.newsServiceCheck$.subscribe(
@@ -42,39 +41,39 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   adjustRowsHeight() {
-    if (this.widthScreen <= 320) {
+    if (window.innerWidth <= 320) {
       this.rowHeight = '2:2.6';
-    } else if (this.widthScreen <= 360 && this.widthScreen <= 375) {
+    } else if (window.innerWidth <= 360 && window.innerWidth <= 375) {
       this.rowHeight = '2:2.3';
-    } else if (this.widthScreen <= 375) {
+    } else if (window.innerWidth <= 375) {
       this.rowHeight = '2:2.2';
-    } else if (this.widthScreen <= 414) {
+    } else if (window.innerWidth <= 414) {
       this.rowHeight = '2:2';
-    } else if (this.widthScreen >= 415 && this.widthScreen <= 768) {
+    } else if (window.innerWidth >= 415 && window.innerWidth <= 768) {
       this.rowHeight = '2:1.5';
-    } else if (this.widthScreen <= 1024) {
+    } else if (window.innerWidth <= 1024) {
       this.rowHeight = '2:2.4';
-    } else if (this.widthScreen >= 1025 && this.widthScreen <= 1280) {
+    } else if (window.innerWidth >= 1025 && window.innerWidth <= 1280) {
       this.rowHeight = '2:1.7';
-    } else if (this.widthScreen >= 1281 && this.widthScreen <= 1366) {
+    } else if (window.innerWidth >= 1281 && window.innerWidth <= 1366) {
       this.rowHeight = '2:2.5';
-    } else if (this.widthScreen >= 1367 && this.widthScreen <= 1440) {
+    } else if (window.innerWidth >= 1367 && window.innerWidth <= 1440) {
       this.rowHeight = '2:2.4';
-    } else if (this.widthScreen >= 1441 && this.widthScreen <= 1536) {
+    } else if (window.innerWidth >= 1441 && window.innerWidth <= 1536) {
       this.rowHeight = '2:2.1';
-    } else if (this.widthScreen === 1600) {
+    } else if (window.innerWidth === 1600) {
       this.rowHeight = '2:2';
-    } else if (this.widthScreen === 1680) {
+    } else if (window.innerWidth === 1680) {
       this.rowHeight = '2:1.9';
-    } else if (this.widthScreen === 1920) {
+    } else if (window.innerWidth === 1920) {
       this.rowHeight = '2:1.6';
     }
   }
 
   adjustBreakPoint() {
-    if (this.widthScreen <= 768) {
+    if (window.innerWidth <= 768) {
       this.breakpoint = 1;
-    } else if (this.widthScreen >= 415 && this.widthScreen <= 1365) {
+    } else if (window.innerWidth >= 415 && window.innerWidth <= 1365) {
       this.breakpoint = 2;
     } else {
       this.breakpoint = 3;
