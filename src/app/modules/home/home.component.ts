@@ -42,21 +42,31 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   adjustRowsHeight() {
     if (window.innerWidth <= 320) {
-      this.rowHeight = '2:3';
+      this.rowHeight = '2:2.6';
     } else if (window.innerWidth <= 360 && window.innerWidth <= 375) {
-      this.rowHeight = '2:2.4';
+      this.rowHeight = '2:2.3';
     } else if (window.innerWidth <= 375) {
-      this.rowHeight = '2:2.3';
+      this.rowHeight = '2:2.2';
     } else if (window.innerWidth <= 414) {
-      this.rowHeight = '2:2.1';
+      this.rowHeight = '2:2';
     } else if (window.innerWidth >= 415 && window.innerWidth <= 768) {
-      this.rowHeight = '2:1.6';
+      this.rowHeight = '2:1.5';
     } else if (window.innerWidth <= 1024) {
-      this.rowHeight = '2:2.3';
-    } else if (window.innerWidth <= 1365) {
-      this.rowHeight = '2:2.3';
-    } else if (window.innerWidth >= 1366) {
+      this.rowHeight = '2:2.4';
+    } else if (window.innerWidth >= 1025 && window.innerWidth <= 1280) {
+      this.rowHeight = '2:1.7';
+    } else if (window.innerWidth >= 1281 && window.innerWidth <= 1366) {
       this.rowHeight = '2:2.5';
+    } else if (window.innerWidth >= 1367 && window.innerWidth <= 1440) {
+      this.rowHeight = '2:2.4';
+    } else if (window.innerWidth >= 1441 && window.innerWidth <= 1536) {
+      this.rowHeight = '2:2.1';
+    } else if (window.innerWidth === 1600) {
+      this.rowHeight = '2:2';
+    } else if (window.innerWidth === 1680) {
+      this.rowHeight = '2:1.9';
+    } else if (window.innerWidth === 1920) {
+      this.rowHeight = '2:1.6';
     }
   }
 

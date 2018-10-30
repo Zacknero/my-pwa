@@ -91,8 +91,8 @@ export class NewsApiService {
 
   private filterImages(list: any) {
     list.filter(function (item, index) {
-      if (item.urlImage) {
-        item.urlImage.substring(0, 5) !== 'https' ? item.urlImage = null : null;
+      if (item.urlToImage) {
+        item.urlToImage.substring(0, 5) !== 'https' ? item.urlToImage = null : null;
       }
       if (item.url) {
         item.url.substring(0, 5) !== 'https' ? list.splice(index, 1) : null;
