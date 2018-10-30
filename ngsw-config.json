@@ -49,9 +49,9 @@
         "/v2/sources"
       ],
       "cacheConfig": {
-        "maxSize": 1,
+        "strategy": "performance",
         "maxAge": "1d",
-        "strategy": "performance"
+        "maxSize": 1
       }
     },
     {
@@ -60,10 +60,10 @@
         "/v2/top-headlines"
       ],
       "cacheConfig": {
-        "maxSize": 5,
-        "maxAge": "1h",
+        "strategy": "freshness",
         "timeout": "60s",
-        "strategy": "freshness"
+        "maxAge": "10s",
+        "maxSize": 5
       }
     }
   ]

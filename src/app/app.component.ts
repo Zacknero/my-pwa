@@ -5,6 +5,7 @@ import {Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart
 import {Subscription} from 'rxjs';
 
 import {LoaderComponent} from './shared/loader/loader.component';
+import {NewsApiService} from './core/services/news-api.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,11 @@ export class AppComponent implements OnInit, OnDestroy {
   private dialogRef;
   private subscription: Subscription;
 
-  constructor(private swUpdate: SwUpdate, private snackBar: MatSnackBar, private router: Router, public dialog: MatDialog) {
+  constructor(private swUpdate: SwUpdate, private snackBar: MatSnackBar, private router: Router, public dialog: MatDialog,
+              private newsService: NewsApiService) {
+
+    newsService.setLangCountry(navigator.language || 'it');
+
     this.subscription = this.router.events.subscribe((routerEvent: Event) => {
 
       if (routerEvent instanceof NavigationStart) {

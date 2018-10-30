@@ -28,7 +28,7 @@ export class SettingsComponent implements OnInit {
     if (!this.diableRadios) {
       this.showSnackBar();
     } else {
-      this.newsApiService.setLangCountry(countryObj);
+      this.newsApiService.changeLangCountry(countryObj);
     }
   }
 
