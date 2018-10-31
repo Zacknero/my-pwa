@@ -17,8 +17,8 @@ export class NewsApiService {
 
   private _sourcesServiceCheck = new Subject();
   sourcesServiceCheck$ = this._sourcesServiceCheck.asObservable();
-  private country;
-  private lang;
+  private country = 'it';
+  private lang = 'it';
 
   constructor(private http: HttpClient) {
   }
@@ -61,22 +61,6 @@ export class NewsApiService {
 
   getCountries() {
     return environment.countries;
-  }
-
-  setLangCountry(langLocal: string) {
-    const listCountries = environment.countries;
-    listCountries.forEach(item => {
-      if (item.lang === langLocal.substring(0, 2)) {
-        this.lang = item.lang;
-        this.country = item.country;
-      }
-    });
-
-    if (!this.lang) {
-      this.lang = 'de';
-      this.country = 'DE';
-    }
-
   }
 
   changeLangCountry(langCountry: Object) {
