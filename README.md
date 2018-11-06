@@ -6,7 +6,7 @@ The web application "PWA News" is used to consult the top news for each country 
 The advantage of this application is developed with the "PWA" technology, synonymous with progressive web application, which can be 
 installed on your device with a simple click without having to go to the store!!
 
-The project was mainly developed with the Angular v6, Angular Material and RxJs freamework.
+The project was mainly developed with Angular v6.2.1 framework, Angular Material UI component library, RxJs library and Firebase for hosting.
 
 _**Test online**_ : <a href="pwa-news-67c22.firebaseapp.com">Link</a>
 

@@ -12,7 +12,7 @@
 
   <mat-card-actions class="card-action">
     Url project
-    <button mat-button class="mat-primary" (click)="onNavigate()">
+    <button mat-button class="mat-primary" (click)="onNavigate()" [disabled]="!network.isOnline()">
       <mat-icon>star</mat-icon>
       GitHub
     </button>

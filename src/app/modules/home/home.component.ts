@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
 
 import {NewsApiService} from '../../core/services/news-api.service';
+import {NetworkService} from '../../core/services/network.service';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   articles$: Array<any> = [];
   subscription: Subscription;
 
-  constructor(private newsApi: NewsApiService, private route: ActivatedRoute) {
+  constructor(private newsApi: NewsApiService, private route: ActivatedRoute, public network: NetworkService) {
     this.subscription = this.newsApi.newsServiceCheck$.subscribe(
       (data: any) => {
         this.articles$ = [];
