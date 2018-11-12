@@ -3,19 +3,19 @@ import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LayoutModule} from '@angular/cdk/layout';
 import {
-  MatToolbarModule,
   MatButtonModule,
-  MatSidenavModule,
+  MatCardModule,
+  MatDialogModule,
+  MatGridListModule,
   MatIconModule,
   MatListModule,
-  MatTableModule,
   MatPaginatorModule,
-  MatSortModule,
-  MatGridListModule,
-  MatCardModule,
-  MatSnackBarModule,
   MatProgressSpinnerModule,
-  MatDialogModule
+  MatSidenavModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatToolbarModule,
 } from '@angular/material';
 import {MatRadioModule} from '@angular/material/radio';
 import {environment} from '../environments/environment';
