@@ -8,7 +8,7 @@ installed on your device with a simple click without having to go to the store!!
 
 The project was mainly developed with Angular v6.2.1 framework, Angular Material UI component library, RxJs library and Firebase for hosting.
 
-_**Test online**_ : <a href="pwa-news-67c22.firebaseapp.com">Link</a>
+_**Try online**_ : <a href="https://pwa-news-67c22.firebaseapp.com">Link</a>
 
 _**API reference of News**:_
 - News API: https://newsapi.org
