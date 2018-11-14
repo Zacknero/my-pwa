@@ -34,7 +34,7 @@ export class NewsApiService {
     return this.http.get(`${this.baseUrl}/top-headlines?country=${this.country}&apiKey=${this.api_key}`)
       .pipe(
         map((response: any) => {
-          return this.filterImages(response.articles);
+          return response.articles;
         })
       );
   }
@@ -43,8 +43,7 @@ export class NewsApiService {
     this.http.get(`${this.baseUrl}/top-headlines?country=${this.country}&apiKey=${this.api_key}`)
       .subscribe(
         data => {
-          const tmp = this.filterImages(data['articles']);
-          this._newsServiceCheck.next(tmp);
+          this._newsServiceCheck.next(data['articles']);
         }
       );
   }
@@ -53,8 +52,7 @@ export class NewsApiService {
     this.http.get(`${this.baseUrl}/top-headlines?language=${this.lang}&sources=${source}&apiKey=${this.api_key}`)
       .subscribe(
         data => {
-          const tmp = this.filterImages(data['articles']);
-          this._newsServiceCheck.next(tmp);
+          this._newsServiceCheck.next(data['articles']);
         }
       );
   }
@@ -71,18 +69,5 @@ export class NewsApiService {
 
   getCountryId() {
     return this.country;
-  }
-
-  private filterImages(list: any) {
-    list.filter(function (item, index) {
-      if (item.urlToImage) {
-        item.urlToImage.substring(0, 5) !== 'https' ? item.urlToImage = null : null;
-      }
-      if (item.url) {
-        item.url.substring(0, 5) !== 'https' ? list.splice(index, 1) : null;
-      }
-
-    });
-    return list;
   }
 }

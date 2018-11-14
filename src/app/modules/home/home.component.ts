@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   rowHeight = '2:2.5';
   articles$: Array<any> = [];
   subscription: Subscription;
+  imageUrlDefault = '../../../assets/images/Blank_Newspaper.png';
+  imageLoader = '../../../assets/images/imgLoader.svg';
 
   constructor(private newsApi: NewsApiService, private route: ActivatedRoute, public network: NetworkService) {
     this.subscription = this.newsApi.newsServiceCheck$.subscribe(
