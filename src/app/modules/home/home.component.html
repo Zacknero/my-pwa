@@ -1,19 +1,22 @@
-<mat-grid-list cols="{{breakpoint}}" rowHeight="{{rowHeight}}" (window:resize)="onResize()" class="grid-component">
-  <mat-grid-tile *ngFor="let article of articles$" class="grid-container">
+<mat-grid-list cols="{{breakpoint}}" rowHeight="{{rowHeight}}" (window:resize)="onResize()" class="grid-component" role="grid">
+  <mat-grid-tile *ngFor="let article of articles$" class="grid-container" role="gridcell">
     <mat-card class="card">
-      <mat-card-header class="header">
+      <mat-card-header class="header" role="rowheader">
         <mat-card-title class="title" style="-webkit-box-orient: block-axis;">{{article.title}}</mat-card-title>
         <mat-card-subtitle>{{article.source.name}}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image appImagePreload class="img-article" src={{article.urlToImage}} alt=""
-           default={{imageUrlDefault}} loader="{{imageLoader}}">
-      <mat-card-content>
+           default={{imageUrlDefault}} loader="{{imageLoader}}" role="img">
+      <mat-card-content role="article">
         <div class="text">{{article.description}}</div>
       </mat-card-content>
       <mat-card-actions class="action-buttons">
-        <button disabled mat-button color="primary"><mat-icon>comment</mat-icon> Comments</button>
-        <button disabled mat-button color="primary"><mat-icon>share</mat-icon> Share</button>
-        <button mat-button color="primary" [disabled]="!network.isOnline()" (click)="onNavigate(article.url)" ><mat-icon>visibility</mat-icon> Read</button>
+        <button disabled mat-button color="primary" role="button"><mat-icon>comment</mat-icon> Comments</button>
+        <button disabled mat-button color="primary" role="button"><mat-icon>share</mat-icon> Share</button>
+        <button mat-button color="primary" [disabled]="!network.isOnline()" (click)="onNavigate(article.url)" role="link">
+          <mat-icon>visibility</mat-icon>
+          Read
+        </button>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>
