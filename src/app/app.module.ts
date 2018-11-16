@@ -29,6 +29,7 @@ import {HomeComponent} from './modules/home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {SettingsComponent} from './modules/settings/settings.component';
 import {LoaderComponent} from './shared/loader/loader.component';
+import {ImagePreloadDirective} from './shared/directives/image-preload.directive';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {LoaderComponent} from './shared/loader/loader.component';
     AboutComponent,
     HomeComponent,
     SettingsComponent,
-    LoaderComponent
+    LoaderComponent,
+    ImagePreloadDirective
   ],
   imports: [
     BrowserModule,
