@@ -1,7 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Subscription} from 'rxjs';
+import {MatBottomSheet} from '@angular/material';
 
+import {SocialSharedComponent} from '../../shared/components/social-shared/social-shared.component';
 import {NewsApiService} from '../../core/services/news-api.service';
 import {NetworkService} from '../../core/services/network.service';
 
@@ -19,7 +21,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   imageUrlDefault = '../../../assets/images/Blank_Newspaper.png';
   imageLoader = '../../../assets/images/imgLoader.svg';
 
-  constructor(private newsApi: NewsApiService, private route: ActivatedRoute, public network: NetworkService) {
+  constructor(private newsApi: NewsApiService, private route: ActivatedRoute, public network: NetworkService,
+              private bottomSheet: MatBottomSheet) {
     this.subscription = this.newsApi.newsServiceCheck$.subscribe(
       (data: any) => {
         this.articles$ = [];
@@ -81,6 +84,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     } else {
       this.breakpoint = 3;
     }
+  }
+
+  openBottomSheet(url): void {
+    this.bottomSheet.open(SocialSharedComponent, {data: {url: url}});
   }
 
   ngOnDestroy(): void {

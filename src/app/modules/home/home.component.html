@@ -11,8 +11,10 @@
         <div class="text">{{article.description}}</div>
       </mat-card-content>
       <mat-card-actions class="action-buttons">
-        <button disabled mat-button color="primary" role="button"><mat-icon>comment</mat-icon> Comments</button>
-        <button disabled mat-button color="primary" role="button"><mat-icon>share</mat-icon> Share</button>
+        <button [disabled]="!network.isOnline()" mat-button color="primary" role="button" (click)="openBottomSheet(article.url)">
+          <mat-icon>share</mat-icon>
+          Share
+        </button>
         <button mat-button color="primary" [disabled]="!network.isOnline()" (click)="onNavigate(article.url)" role="link">
           <mat-icon>visibility</mat-icon>
           Read

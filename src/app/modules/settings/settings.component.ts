@@ -3,6 +3,7 @@ import {MatSnackBar} from '@angular/material';
 
 import {NewsApiService} from '../../core/services/news-api.service';
 import {NetworkService} from '../../core/services/network.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -12,9 +13,10 @@ import {NetworkService} from '../../core/services/network.service';
 export class SettingsComponent implements OnInit {
 
   listCounty = [];
-  diableRadios = false;
+  disableRadios = false;
 
-  constructor(private newsApiService: NewsApiService, public network: NetworkService, private snackBar: MatSnackBar) {
+  constructor(private newsApiService: NewsApiService, public network: NetworkService, private snackBar: MatSnackBar,
+              private router: Router) {
     this.listCounty = newsApiService.getCountries();
   }
 
@@ -25,10 +27,11 @@ export class SettingsComponent implements OnInit {
   }
 
   changeCountry(countryObj) {
-    if (!this.diableRadios) {
+    if (!this.disableRadios) {
       this.showSnackBar();
     } else {
       this.newsApiService.changeLangCountry(countryObj);
+      this.router.navigate(['home']);
     }
   }
 
@@ -37,7 +40,7 @@ export class SettingsComponent implements OnInit {
   }
 
   checkOnline() {
-    this.diableRadios = this.network.isOnline();
+    this.disableRadios = this.network.isOnline();
     return this.network.isOnline();
   }
 

@@ -16,10 +16,13 @@ import {
   MatSortModule,
   MatTableModule,
   MatToolbarModule,
+  MatBottomSheetModule
 } from '@angular/material';
 import {MatRadioModule} from '@angular/material/radio';
 import {environment} from '../environments/environment';
 import {ServiceWorkerModule} from '@angular/service-worker';
+import {ShareModule} from '@ngx-share/core';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 import {AppNavComponent} from './core/app-nav/app-nav.component';
 import {AppComponent} from './app.component';
@@ -30,6 +33,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {SettingsComponent} from './modules/settings/settings.component';
 import {LoaderComponent} from './shared/loader/loader.component';
 import {ImagePreloadDirective} from './shared/directives/image-preload.directive';
+import {SocialSharedComponent} from './shared/components/social-shared/social-shared.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,8 @@ import {ImagePreloadDirective} from './shared/directives/image-preload.directive
     HomeComponent,
     SettingsComponent,
     LoaderComponent,
-    ImagePreloadDirective
+    ImagePreloadDirective,
+    SocialSharedComponent
   ],
   imports: [
     BrowserModule,
@@ -61,10 +66,13 @@ import {ImagePreloadDirective} from './shared/directives/image-preload.directive
     MatRadioModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatBottomSheetModule,
+    FontAwesomeModule,
+    ShareModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [],
-  entryComponents: [LoaderComponent],
+  entryComponents: [LoaderComponent, SocialSharedComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
