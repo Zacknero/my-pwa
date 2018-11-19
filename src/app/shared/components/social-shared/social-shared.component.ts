@@ -16,8 +16,9 @@ export class SocialSharedComponent {
     this.linkToShare = this.data.url;
   }
 
-  sharedLink() {
+  sharedLink(event: MouseEvent) {
     this.bottomSheetRef.dismiss();
+    event.preventDefault();
   }
 
 }
