@@ -50,8 +50,8 @@
       ],
       "cacheConfig": {
         "strategy": "performance",
-        "maxAge": "1d",
-        "maxSize": 1
+        "maxAge": "30d",
+        "maxSize": 8
       }
     },
     {
@@ -63,7 +63,7 @@
         "strategy": "freshness",
         "timeout": "60s",
         "maxAge": "1d",
-        "maxSize": 5
+        "maxSize": 8
       }
     }
   ]
