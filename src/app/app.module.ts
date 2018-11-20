@@ -31,7 +31,7 @@ import {AboutComponent} from './modules/about/about.component';
 import {HomeComponent} from './modules/home/home.component';
 import {HttpClientModule} from '@angular/common/http';
 import {SettingsComponent} from './modules/settings/settings.component';
-import {LoaderComponent} from './shared/loader/loader.component';
+import {LoaderComponent} from './shared/components/loader/loader.component';
 import {ImagePreloadDirective} from './shared/directives/image-preload.directive';
 import {SocialSharedComponent} from './shared/components/social-shared/social-shared.component';
 

@@ -23,8 +23,13 @@
 
   text-align: center;
 
-  button {
+  button.mat-button {
     width: 40%;
+    &.cdk-program-focused {
+      ::ng-deep .mat-button-focus-overlay {
+        opacity: 0;
+      }
+    }
   }
 
   a {

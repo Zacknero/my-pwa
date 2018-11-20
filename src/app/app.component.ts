@@ -4,7 +4,7 @@ import {MatDialog, MatSnackBar} from '@angular/material';
 import {Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 
-import {LoaderComponent} from './shared/loader/loader.component';
+import {LoaderComponent} from './shared/components/loader/loader.component';
 
 @Component({
   selector: 'app-root',

@@ -1,5 +1,14 @@
 .sidenav-container {
   height: 100%;
+
+  button.mat-icon-button {
+    &.cdk-program-focused {
+      ::ng-deep .mat-button-focus-overlay {
+        opacity: 0;
+      }
+    }
+  }
+
 }
 
 .sidenav {
