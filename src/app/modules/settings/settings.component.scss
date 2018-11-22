@@ -1,8 +1,27 @@
-mat-radio-button {
-  text-align: center;
+mat-list {
+  mat-radio-button {
+    text-align: center;
+    .avatar {
+      width: 50%;
+      padding: 1%;
+    }
+  }
 }
 
-.avatar {
-  width: 50%;
-  padding: 1%;
+@media screen and (max-device-width: 413px) {
+  mat-radio-button {
+    width: 47%;
+  }
+}
+
+@media screen and (max-device-width: 1024px) and (min-device-width: 414px) {
+  mat-radio-button {
+    width: 32%;
+  }
+}
+
+@media screen and (min-device-width: 415px) {
+  mat-radio-button {
+    width: 24%;
+  }
 }
