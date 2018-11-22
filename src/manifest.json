@@ -3,7 +3,7 @@
   "name": "PWA News",
   "short_name": "PWA News",
   "theme_color": "#009688",
-  "background_color": "#ffffff",
+  "background_color": "#009688",
   "description": "Sample PWA App News",
   "orientation": "portrait",
   "display": "standalone",
