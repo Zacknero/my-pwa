@@ -29,3 +29,7 @@ For work with Service Worker, you must run in build because this isn't work with
 _Build local with Service Worker_ =>`ng build --prod && lite-server --baseDir dist/my-pwa`
 
 _Build Local without Service Worker_ => `ng serve`
+
+###### **UPDATE 2/11/2020**
+
+The plan of news api is changed into developer and business. So from now don't work into production mode (hosted on firebase) but you can see running local with commands.

@@ -1,5 +1,9 @@
 {
   "name": "my-pwa",
+  "author": {
+    "name": "Davide Zamballetti",
+    "url": "https://www.linkedin.com/in/davide-zamballetti-62002667/"
+  },
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
@@ -59,5 +63,9 @@
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
     "typescript": "^3.1.6"
+  },
+  "engines": {
+    "node": "10.15.0",
+    "npm": "6.10.3"
   }
 }
