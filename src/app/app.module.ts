@@ -34,6 +34,7 @@ import {SettingsComponent} from './modules/settings/settings.component';
 import {LoaderComponent} from './shared/components/loader/loader.component';
 import {ImagePreloadDirective} from './shared/directives/image-preload.directive';
 import {SocialSharedComponent} from './shared/components/social-shared/social-shared.component';
+import {IosInstallComponent} from './shared/components/ios-install/ios-install.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import {SocialSharedComponent} from './shared/components/social-shared/social-sh
     SettingsComponent,
     LoaderComponent,
     ImagePreloadDirective,
-    SocialSharedComponent
+    SocialSharedComponent,
+    IosInstallComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,7 @@ import {SocialSharedComponent} from './shared/components/social-shared/social-sh
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [],
-  entryComponents: [LoaderComponent, SocialSharedComponent],
+  entryComponents: [LoaderComponent, SocialSharedComponent, IosInstallComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

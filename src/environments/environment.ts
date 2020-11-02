@@ -11,25 +11,25 @@ export const environment = {
       lang: 'it',
       country: 'it',
       name: 'Italy',
-      src: '003-italy'
+      src: '001-italy'
     },
     {
       lang: 'en',
       country: 'gb',
       name: 'England',
-      src: '005-uk'
+      src: '005-united-kingdom'
     },
     {
       lang: 'de',
       country: 'de',
       name: 'Germany',
-      src: '002-germany'
+      src: '003-germany'
     },
     {
       lang: 'fr',
       country: 'fr',
       name: 'France',
-      src: '001-france'
+      src: '002-france'
     },
     {
       lang: 'es',
